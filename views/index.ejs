@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortUrl</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #1a1a1a; /* Dark charcoal background */
+            color: #d1d1d1; /* Light silver color for text */
+            font-family: 'Poppins', sans-serif; /* Elegant font family */
+        }
+        .main {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .title {
+            text-align: center;
+            font-size: 3rem;
+            color: #FFD700; /* Gold for a premium effect */
+            margin-bottom: 20px;
+        }
+        .form__card {
+            width: 400px;
+            padding: 2rem;
+            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(60, 60, 60, 0.8), rgba(0, 0, 0, 0.8)); /* Subtle gradient */
+            color: #f8f8f8;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            backdrop-filter: blur(12px); /* Stronger blur */
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* Soft gold glow */
+            -webkit-backdrop-filter: blur(12px); /* Safari support */
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid #FFD700; /* Gold border */
+            border-radius: 6px;
+            background-color: transparent;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #FFD700; /* Gold text */
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #FFD700; /* Gold background on hover */
+            color: #1a1a1a; /* Dark text on hover */
+            border: 1px solid transparent;
+        }
+
+        a {
+            color: #FFD700; /* Gold text for the link */
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        input {
+            background-color: #333333; /* Dark background for inputs */
+            color: #d1d1d1; /* Light silver text */
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #555555; /* Subtle border */
+            width: 100%;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            border: 1px solid #FFD700; /* Gold border on focus */
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">URL Shortener</h1>
+    <div class="main">
+        <div class="form__card">
+            <form action="/postlnk" method="POST">
+                <label for="L-url">Enter Your Long URL</label>
+                <input type="text" id="L-url" name="url" required><br>
+                <button type="submit" class="btn">Shorten</button>
+            </form>
+            <p>Short URL is: <a href="<%=shortUrl%>" target="_blank" rel="noopener noreferrer"><%=shortUrl%></a></p>
+        </div>
+    </div>
+</body>
+</html>
